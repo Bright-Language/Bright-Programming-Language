@@ -6,11 +6,11 @@ Bright Programming Language repository!
 - WORKING ONLY IN LINUX!
 
 # Dependencies
-- NASM
-Ubuntu: `sudo apt-get install nasm -y`
+- NASM \
+Ubuntu: `sudo apt-get install nasm -y` \
 Arch: `sudo pacman -Sy nasm`
-- LLD
-Ubuntu: `sudo apt-get install lld -y`
+- LLD \
+Ubuntu: `sudo apt-get install lld -y` \
 Arch: `sudo pacman -Sy lld`
 
 # Current Syntax
