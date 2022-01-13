@@ -33,8 +33,8 @@ namespace Bright.Parser {
                         if (HasSemi(tokens, node)) {
                             node++; //skip int
                             string tokname=tokens[node].TokenValue;
+                            node++; //skip token name
                             node++; //skip equals
-                            node++; //skip equals...idk what happened
                             string tokvalue="";
                             while (tokens[node].TokenName!=Tokens.Semicolon) {
                                 tokvalue+=tokens[node].TokenValue;
