@@ -10,7 +10,7 @@ namespace Bright.Parser.Parse {
             while (tokens[ind].TokenName!=Tokens.EOF) {
                 if (tokens[ind].TokenName==Tokens.Semicolon) {
                     return true;
-                } else if (tokens[ind].TokenName==Tokens.CloseBrace || tokens[ind].TokenName==Tokens.OpenBrace || tokens[ind].TokenName==Tokens.EOF) {
+                } else if (InterruptTokens.toks.Contains(tokens[ind].TokenName)) {
                     return false;
                 } else {
                     ind++;
