@@ -5,6 +5,14 @@ Bright Programming Language repository!
 - TO COMPILE, USE .NET 6.0
 - WORKING ONLY IN LINUX!
 
+# Dependencies
+- NASM
+Ubuntu: `sudo apt-get install nasm -y`
+Arch: `sudo pacman -Sy nasm`
+- LLD
+Ubuntu: `sudo apt-get install lld -y`
+Arch: `sudo pacman -Sy lld`
+
 # Current Syntax
 #### C/C# Like syntax!
 ```cs
