@@ -12,3 +12,4 @@ int var2=25;
 
 # Important!
 - TO COMPILE, USE .NET 6.0
+- WORKING ONLY IN LINUX!
