@@ -4,7 +4,7 @@ using Bright.Grammar;
 using static Bright.Grammar.TokenParser;
 
 namespace Bright.Parser.Parse {
-    public static class IntVar {
+    public static class FloatVar {
         public static Node Parse(Token[] tokens, int node, int Line) {
             if (HasSemi.CheckSemi(tokens, node)) {
                 node++; //skip int
@@ -19,7 +19,7 @@ namespace Bright.Parser.Parse {
                 Node Node;
                 Node=new Node() {
                     type=TokenTypes.VARDEF,
-                    left=Types.INTEGER,
+                    left=Types.FLOAT,
                     right=tokname,
                     value=tokvalue,
                     line=Line

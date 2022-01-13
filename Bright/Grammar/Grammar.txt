@@ -2,6 +2,7 @@
 "[f][u][n][c][t][i][o][n]" Function
 "[i][n][t]" IntType
 "[s][t][r][i][n][g]" StringType
+"[f][l][o][a][t]" FloatType
 "[a-zA-Z][a-zA-Z_0-9]*" Identifier
 "\".*?\"" String
 "[0-9]+" Integer

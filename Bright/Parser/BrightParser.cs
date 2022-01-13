@@ -19,6 +19,8 @@ namespace Bright.Parser {
             for (int node=0;node<tokens.Length;node++) {
                 switch (tokens[node].TokenName) {
                     case Tokens.IntType: AST.Add(IntVar.Parse(tokens, node, Line)); break;
+                    case Tokens.StringType: AST.Add(StrVar.Parse(tokens, node, Line)); break;
+                    case Tokens.FloatType: AST.Add(FloatVar.Parse(tokens, node, Line)); break;
                     case Tokens.Newline: Line++; break;
                 }
             }

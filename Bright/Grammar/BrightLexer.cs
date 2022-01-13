@@ -39,7 +39,8 @@ namespace Bright.Grammar
             CloseBrace=15,
             Semicolon=16,
             Equals=17,
-            EOF=18
+            FloatType=18,
+            EOF=19
         }
 
 		/// <summary>
@@ -87,6 +88,7 @@ namespace Bright.Grammar
             _tokens.Add(Tokens.CloseBrace, "\\}");
             _tokens.Add(Tokens.Semicolon, "\\;");
             _tokens.Add(Tokens.Equals, "\\=");
+            _tokens.Add(Tokens.FloatType, "[f][l][o][a][t]");
         }
 
 		/// <summary>

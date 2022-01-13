@@ -1,9 +1,9 @@
 namespace Bright.Parser.Parse {
     public struct Node {
         public TokenTypes type;
-        public string value;
-        public string right;
-        public string left;
+        public object value;
+        public object right;
+        public object left;
         public int line;
     }
 }
