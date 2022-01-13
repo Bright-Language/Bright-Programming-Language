@@ -2,7 +2,7 @@
 Bright Programming Language repository!
 # Current Syntax
 #### C Like syntax!
-```c
+```cs
 int var1=15;
 string name="Bright is a programming language!";
 ```
