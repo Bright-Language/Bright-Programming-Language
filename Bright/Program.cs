@@ -2,6 +2,7 @@
 using static System.Console;
 using Bright.Grammar;
 using Bright.Parser;
+using Bright.Parser.Parse;
 
 namespace Bright {
     public class Program {
@@ -31,8 +32,8 @@ int var2=10;";
             WriteLine("PARSING");
             BrightParser Parser;
             Parser=new BrightParser();
-            List<BrightParser.node> AST=Parser.Parse(tokens.ToArray());
-            foreach(BrightParser.node node in AST) {
+            List<Node> AST=Parser.Parse(tokens.ToArray());
+            foreach(Node node in AST) {
                 WriteLine($"TYPE: {node.type}\nLEFT: {node.left}\nVALUE: {node.value}\nLINE: {node.line}");
             }
 		}
