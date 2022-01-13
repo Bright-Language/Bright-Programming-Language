@@ -4,7 +4,7 @@ Bright Programming Language repository!
 #### C Like syntax!
 ```c
 int var1=15;
-int var2=25;
+string name="Bright is a programming language!";
 ```
 <sup><sub>(yes, for now, you can only do that (variables))</sup></sub>
 # Resources
