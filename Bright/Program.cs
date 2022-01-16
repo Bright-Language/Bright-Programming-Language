@@ -31,7 +31,7 @@ namespace Bright {
             WriteLine("\n==========LEXING==========\n");
 
             string code=@"
-function levi(string quejo) {
+function main(string arg1) {
     int b=6;
     if (1==1) {
         b=7;
