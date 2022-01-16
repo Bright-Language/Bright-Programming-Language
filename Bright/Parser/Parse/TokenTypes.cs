@@ -1,8 +1,20 @@
 using Bright.Grammar;
 
 namespace Bright.Parser.Parse {
-    public enum TokenTypes {
-        VARDEF=1
+    public enum NodeTypes {
+        NULL=0,
+        UNDEFINED=1,
+        VARDEF=2,
+        FUNCTIONDEF=3,
+        METHODDEF=4,
+        PARAM=5,
+        ARG=6,
+        STRING=7,
+        INT=8,
+        FLOAT=9,
+        FUNCCALL=10,
+        IFSTMT=11,
+        VARMOD=12
     }
 
     public enum Types {
@@ -18,6 +30,11 @@ namespace Bright.Parser.Parse {
             //TokenParser.Tokens.IntType,
             //TokenParser.Tokens.Method,
             //TokenParser.Tokens.Function,
+            TokenParser.Tokens.EOF
+        };
+        public static List<TokenParser.Tokens> argparam=new List<TokenParser.Tokens>() {
+            TokenParser.Tokens.CloseBrace,
+            TokenParser.Tokens.OpenBrace,
             TokenParser.Tokens.EOF
         };
     }

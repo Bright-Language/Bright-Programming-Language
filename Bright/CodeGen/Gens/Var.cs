@@ -14,7 +14,7 @@ namespace Bright.CodeGen.Gens {
 
         public void GenerateVars(List<Node> nodes, Dictionary<string, List<string>> code) {
             foreach (Node node in nodes) {
-                if (node.type==TokenTypes.VARDEF) {
+                if (node.Type==NodeTypes.VARDEF) {
                     if ((Types)node.left==Types.STRING) {
                         afcode.Add($"{(string)node.right} db {(string)node.value},0xa");
                         vars.Add((string)node.right);

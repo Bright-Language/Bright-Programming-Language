@@ -5,26 +5,42 @@ using static Bright.Grammar.TokenParser;
 using Bright.Parser.Parse;
 
 namespace Bright.Parser {
-    public class BrightParser {
+    public static class BrightParser {
 
-        List<Node> AST;
+        public static int node=0;
+        public static int Line=1;
+        public static List<string> funcs=new List<string>();
+        public static List<string> vars=new List<string>();
 
-        int Line=1;
-
-        public BrightParser() {
-            AST=new List<Node>();
-        }
-
-        public List<Node> Parse(Token[] tokens) {
-            for (int node=0;node<tokens.Length;node++) {
-                switch (tokens[node].TokenName) {
-                    case Tokens.IntType: AST.Add(IntVar.Parse(tokens, node, Line)); break;
-                    case Tokens.StringType: AST.Add(StrVar.Parse(tokens, node, Line)); break;
-                    case Tokens.FloatType: AST.Add(FloatVar.Parse(tokens, node, Line)); break;
-                    case Tokens.Newline: Line++; break;
+        public static List<Node> Parse(List<Token> tokens) {
+            List<Node> AST=new List<Node>();
+            Node cnode;
+            while(node<tokens.Count) {
+                if (tokens[node].TokenName==Tokens.Newline) {
+                    Line++;
+                    node++;
+                } else {
+                    cnode=(Node)Peek(node, tokens, Line);
+                    AST.Add(cnode);
+                    node++;
                 }
             }
             return AST;
+        }
+
+        public static object Peek(int Index, List<Token> tokens, int Line) {
+            switch (tokens[Index].TokenName) {
+                case Tokens.IntType: return (Node)IntVar.Parse(tokens, Line);
+                case Tokens.StringType: return (Node)StrVar.Parse(tokens, Line);
+                case Tokens.FloatType: return (Node)FloatVar.Parse(tokens, Line);
+                case Tokens.Function: return (Node)Function.Parse(tokens, Line);
+                case Tokens.Identifier: return (Node)Identifier.Parse(tokens, Line);
+                case Tokens.If: return (Node)IfStmt.Parse(tokens, Line);
+                case Tokens.Newline: Line++; break;
+                case Tokens.EOF: break;
+                default: Console.WriteLine($"Parser: Error:\nLine: {Line}: Unexpected token {tokens[Index].TokenName} - {tokens[Index].TokenValue}"); Environment.Exit(1); break;
+            }
+            return null;
         }
     }
 }

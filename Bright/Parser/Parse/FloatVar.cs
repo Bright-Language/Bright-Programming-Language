@@ -5,31 +5,26 @@ using static Bright.Grammar.TokenParser;
 
 namespace Bright.Parser.Parse {
     public static class FloatVar {
-        public static Node Parse(Token[] tokens, int node, int Line) {
-            if (HasSemi.CheckSemi(tokens, node)) {
-                node++; //skip int
-                string tokname=tokens[node].TokenValue;
-                node++; //skip tokname
-                node++; //skip equals
+        public static object Parse(List<Token> tokens, int Line) {
+            if (HasSemi.CheckSemi(tokens)) {
+                BrightParser.node++; //skip int
+                string tokname=tokens[BrightParser.node].TokenValue;
+                BrightParser.node++; //skip tokname
+                BrightParser.node++; //skip equals
                 string tokvalue="";
-                while (tokens[node].TokenName!=Tokens.Semicolon) {
-                    tokvalue+=tokens[node].TokenValue;
-                    node++;
+                while (tokens[BrightParser.node].TokenName!=Tokens.Semicolon) {
+                    tokvalue+=tokens[BrightParser.node].TokenValue;
+                    BrightParser.node++;
                 }
                 Node Node;
-                Node=new Node() {
-                    type=TokenTypes.VARDEF,
-                    left=Types.FLOAT,
-                    right=tokname,
-                    value=tokvalue,
-                    line=Line
-                };
+                BrightParser.vars.Add(tokname);
+                Node=new Node(NodeTypes.VARDEF){left=Types.FLOAT,right=tokname,value=tokvalue,Line=Line,Index=BrightParser.node};
                 return Node;
             } else {
                 Console.WriteLine($"Parser: Error:\nLine {Line}: Missing Semicolon!");
                 Environment.Exit(1);
             }
-            return new Node();
+            return null;
         }
     }
 }

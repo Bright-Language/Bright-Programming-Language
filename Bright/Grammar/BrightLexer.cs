@@ -26,21 +26,28 @@ namespace Bright.Grammar
             Function=2,
             IntType=3,
             StringType=4,
-            Identifier=5,
-            String=6,
-            Integer=7,
-            Float=8,
-            Whitespace=9,
-            Newline=10,
-            Comment=11,
-            Lparen=12,
-            Rparen=13,
-            OpenBrace=14,
-            CloseBrace=15,
-            Semicolon=16,
-            Equals=17,
-            FloatType=18,
-            EOF=19
+            FloatType=5,
+            If=6,
+            Else=7,
+            Identifier=8,
+            Plus=9,
+            Minus=10,
+            Div=11,
+            Mul=12,
+            String=13,
+            Integer=14,
+            Float=15,
+            Whitespace=16,
+            Newline=17,
+            Comment=18,
+            Lparen=19,
+            Rparen=20,
+            OpenBrace=21,
+            CloseBrace=22,
+            Semicolon=23,
+            EQEQ=24,
+            Equals=25,
+            EOF=26
         }
 
 		/// <summary>
@@ -75,7 +82,14 @@ namespace Bright.Grammar
             _tokens.Add(Tokens.Function, "[f][u][n][c][t][i][o][n]");
             _tokens.Add(Tokens.IntType, "[i][n][t]");
             _tokens.Add(Tokens.StringType, "[s][t][r][i][n][g]");
+            _tokens.Add(Tokens.FloatType, "[f][l][o][a][t]");
+            _tokens.Add(Tokens.If, "[i][f]");
+            _tokens.Add(Tokens.Else, "[e][l][s][e]");
             _tokens.Add(Tokens.Identifier, "[a-zA-Z][a-zA-Z_0-9]*");
+            _tokens.Add(Tokens.Plus, "\\+");
+            _tokens.Add(Tokens.Minus, "\\-");
+            _tokens.Add(Tokens.Div, "\\/");
+            _tokens.Add(Tokens.Mul, "\\*");
             _tokens.Add(Tokens.String, "\".*?\"");
             _tokens.Add(Tokens.Integer, "[0-9]+");
             _tokens.Add(Tokens.Float, "[0-9]+\\.+[0-9]+");
@@ -87,8 +101,8 @@ namespace Bright.Grammar
             _tokens.Add(Tokens.OpenBrace, "\\{");
             _tokens.Add(Tokens.CloseBrace, "\\}");
             _tokens.Add(Tokens.Semicolon, "\\;");
+            _tokens.Add(Tokens.EQEQ, "\\==");
             _tokens.Add(Tokens.Equals, "\\=");
-            _tokens.Add(Tokens.FloatType, "[f][l][o][a][t]");
         }
 
 		/// <summary>
@@ -234,3 +248,4 @@ namespace Bright.Grammar
         }
     }
 }
+
