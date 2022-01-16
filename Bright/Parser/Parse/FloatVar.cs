@@ -17,7 +17,7 @@ namespace Bright.Parser.Parse {
                     BrightParser.node++;
                 }
                 Node Node;
-                BrightParser.vars.Add(tokname);
+                BrightParser.vars.Add(tokname, VarType.FLOAT);
                 Node=new Node(NodeTypes.VARDEF){left=Types.FLOAT,right=tokname,value=tokvalue,Line=Line,Index=BrightParser.node};
                 return Node;
             } else {

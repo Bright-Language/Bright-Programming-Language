@@ -31,10 +31,10 @@ namespace Bright {
             WriteLine("\n==========LEXING==========\n");
 
             string code=@"
-function main(string arg1) {
-    int b=6;
+function mk() {
+    int b=4;
     if (1==1) {
-        b=7;
+        b=5;
     }
 }";
             TokenParser lexer;
@@ -64,11 +64,11 @@ function main(string arg1) {
             WriteLine("\n==========PARSING==========\n");
             List<Node> AST=BrightParser.Parse(tokens);
             foreach(Node node in AST) {
-                WriteLine($"TYPE: {node.Type}\nLEFT: {node.left}\nRIGHT: {node.right}\nVALUE: {node.value}\nLINE: {node.Line}");
+                WriteLine($"TYPE: {node.Type}\nLEFT: {node.left}\nMID: {node.mid}\nRIGHT: {node.right}\nVALUE: {node.value}\nLINE: {node.Line}");
                 if (node.InnerNodes.Count>0) {
                     foreach (Node nod in node.InnerNodes) {
                         WriteLine($"\nInside Node {node.Type}");
-                        WriteLine($"\nTYPE: {nod.Type}\nLEFT: {nod.left}\nRIGHT: {nod.right}\nVALUE: {nod.value}\nLINE: {nod.Line}");
+                        WriteLine($"\nTYPE: {nod.Type}\nLEFT: {nod.left}\nMID: {nod.mid}\nRIGHT: {nod.right}\nVALUE: {nod.value}\nLINE: {nod.Line}");
                     }
                 }
             }

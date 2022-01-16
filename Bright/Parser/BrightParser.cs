@@ -10,7 +10,7 @@ namespace Bright.Parser {
         public static int node=0;
         public static int Line=1;
         public static List<string> funcs=new List<string>();
-        public static List<string> vars=new List<string>();
+        public static Dictionary<string, VarType> vars=new Dictionary<string, VarType>();
 
         public static List<Node> Parse(List<Token> tokens) {
             List<Node> AST=new List<Node>();

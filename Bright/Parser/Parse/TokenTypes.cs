@@ -32,6 +32,30 @@ namespace Bright.Parser.Parse {
             //TokenParser.Tokens.Function,
             TokenParser.Tokens.EOF
         };
+
+        public static List<TokenParser.Tokens> ifm=new List<TokenParser.Tokens>() {
+            TokenParser.Tokens.Method,
+            TokenParser.Tokens.Function,
+            TokenParser.Tokens.IntType,
+            TokenParser.Tokens.StringType,
+            TokenParser.Tokens.FloatType,
+            TokenParser.Tokens.If,
+            TokenParser.Tokens.Else,
+            TokenParser.Tokens.Identifier,
+            TokenParser.Tokens.Plus,
+            TokenParser.Tokens.Minus,
+            TokenParser.Tokens.Div,
+            TokenParser.Tokens.Mul,
+            TokenParser.Tokens.String,
+            TokenParser.Tokens.Integer,
+            TokenParser.Tokens.Float,
+            TokenParser.Tokens.Lparen,
+            TokenParser.Tokens.Rparen,
+            TokenParser.Tokens.EQEQ,
+            TokenParser.Tokens.Equals,
+            TokenParser.Tokens.EOF
+        };
+
         public static List<TokenParser.Tokens> argparam=new List<TokenParser.Tokens>() {
             TokenParser.Tokens.CloseBrace,
             TokenParser.Tokens.OpenBrace,

@@ -8,9 +8,9 @@ namespace Bright.Parser.Parse {
         public static object Parse(List<Token> tokens, int Line) {
             if (HasSemi.CheckSemi(tokens)) {
                 string VarName=tokens[BrightParser.node].TokenValue;
-                WaitFor.WaitForToken(Tokens.Equals, tokens, Line); //the result: =
+                WaitFor.WaitForToken(Tokens.Equals, InterruptTokens.toks, tokens, Line); //the result: =
                 BrightParser.node++;
-                WaitFor.WaitForToken(new Tokens[]{Tokens.Integer, Tokens.String, Tokens.Float}, tokens, Line);
+                WaitFor.WaitForToken(new Tokens[]{Tokens.Integer, Tokens.String, Tokens.Float}, InterruptTokens.toks, tokens, Line);
                 List<Token> Value=new List<Token>();
                 while (tokens[BrightParser.node].TokenName!=Tokens.Semicolon) {
                     Value.Add(tokens[BrightParser.node]);
