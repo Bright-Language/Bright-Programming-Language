@@ -4,20 +4,14 @@ using Bright.Parser.Parse;
 using System;
 
 namespace Bright.CodeGen {
-    public class CodeGenerator {
+    public static class CodeGenerator {
 
-        List<Node> nodes;
-        Dictionary<string, List<string>> code;
-        Var vars;
-        public CodeGenerator(List<Node> nodes) {
-            this.nodes=nodes;
-            this.code=new Dictionary<string, List<string>>();
-            vars=new Var();
-        }
+        public static List<Node> nodes=new List<Node>();
+        public static Dictionary<string, List<string>> code=new Dictionary<string, List<string>>();
 
-        public void Generate() {
-            vars.GenerateVars(nodes, code);
+        public static void Generate(List<Node> nodes) {
             code.Add("_start", new List<string>(){});
+            Vars.GenerateVars(nodes);
             code["_start"].Add("mov	eax,1");
             code["_start"].Add("int	0x80");
             string final="section .text\n\tglobal _start";

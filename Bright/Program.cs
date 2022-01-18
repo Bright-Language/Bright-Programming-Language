@@ -30,13 +30,7 @@ namespace Bright {
 
             WriteLine("\n==========LEXING==========\n");
 
-            string code=@"
-function mk() {
-    int b=4;
-    if (1==1) {
-        b=5;
-    }
-}";
+            string code=System.IO.File.ReadAllText("program.bri");
             TokenParser lexer;
             lexer=new TokenParser();
             lexer.InputString=code;
@@ -64,12 +58,16 @@ function mk() {
             WriteLine("\n==========PARSING==========\n");
             List<Node> AST=BrightParser.Parse(tokens);
             foreach(Node node in AST) {
-                WriteLine($"TYPE: {node.Type}\nLEFT: {node.left}\nMID: {node.mid}\nRIGHT: {node.right}\nVALUE: {node.value}\nLINE: {node.Line}");
-                if (node.InnerNodes.Count>0) {
-                    foreach (Node nod in node.InnerNodes) {
-                        WriteLine($"\nInside Node {node.Type}");
-                        WriteLine($"\nTYPE: {nod.Type}\nLEFT: {nod.left}\nMID: {nod.mid}\nRIGHT: {nod.right}\nVALUE: {nod.value}\nLINE: {nod.Line}");
+                try {
+                    WriteLine($"TYPE: {node.Type}\nLEFT: {node.left}\nMID: {node.mid}\nRIGHT: {node.right}\nVALUE: {node.value}\nLINE: {node.Line}");
+                    if (node.InnerNodes.Count>0) {
+                        foreach (Node nod in node.InnerNodes) {
+                            WriteLine($"\nInside Node {node.Type}");
+                            WriteLine($"\nTYPE: {nod.Type}\nLEFT: {nod.left}\nMID: {nod.mid}\nRIGHT: {nod.right}\nVALUE: {nod.value}\nLINE: {nod.Line}");
+                        }
                     }
+                } catch {
+                    continue;
                 }
             }
 
@@ -77,16 +75,14 @@ function mk() {
 
             #region CODE GENERATOR
 
-            /*WriteLine("\n==========CODE GENERATOR==========\n");
-            CodeGenerator codegen;
-            codegen=new CodeGenerator(AST);
-            codegen.Generate();
+            WriteLine("\n==========CODE GENERATOR==========\n");
+            CodeGenerator.Generate(AST);
             WriteLine("Done");
             WriteLine("\n==========LINKING EVERYTHING==========\n");
             ProcessStartInfo startInfo = new ProcessStartInfo() { FileName = "/bin/bash", Arguments = "run.sh", }; 
             Process proc = new Process() { StartInfo = startInfo, };
             proc.Start();
-            WriteLine("Done running (no messages, because only var works for now)");*/
+            WriteLine("Done running (no messages, because only var works for now)");
 
             #endregion
 		}
